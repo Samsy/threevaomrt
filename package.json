@@ -1,0 +1,117 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "three@git+https://github.com/Samsy/threemodif.git",
+        "scope": null,
+        "escapedName": "three",
+        "name": "three",
+        "rawSpec": "git+https://github.com/Samsy/threemodif.git",
+        "spec": "git+https://github.com/Samsy/threemodif.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:Samsy/threemodif.git",
+          "sshUrl": "git+ssh://git@github.com/Samsy/threemodif.git",
+          "httpsUrl": "git+https://github.com/Samsy/threemodif.git",
+          "gitUrl": "git://github.com/Samsy/threemodif.git",
+          "shortcut": "github:Samsy/threemodif",
+          "directUrl": "https://raw.githubusercontent.com/Samsy/threemodif/master/package.json"
+        }
+      },
+      "/Users/Samsy/Sites/breel"
+    ]
+  ],
+  "_from": "git+https://github.com/Samsy/threemodif.git",
+  "_id": "three@0.83.0",
+  "_inCache": true,
+  "_location": "/three",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "three@git+https://github.com/Samsy/threemodif.git",
+    "scope": null,
+    "escapedName": "three",
+    "name": "three",
+    "rawSpec": "git+https://github.com/Samsy/threemodif.git",
+    "spec": "git+https://github.com/Samsy/threemodif.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:Samsy/threemodif.git",
+      "sshUrl": "git+ssh://git@github.com/Samsy/threemodif.git",
+      "httpsUrl": "git+https://github.com/Samsy/threemodif.git",
+      "gitUrl": "git://github.com/Samsy/threemodif.git",
+      "shortcut": "github:Samsy/threemodif",
+      "directUrl": "https://raw.githubusercontent.com/Samsy/threemodif/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/Samsy/threemodif.git#f756fedcf04222fabcae7b66249a75f9782318d3",
+  "_shasum": "0683be9de8de59712bd44ca65ca761a20cfc1c20",
+  "_shrinkwrap": null,
+  "_spec": "three@git+https://github.com/Samsy/threemodif.git",
+  "_where": "/Users/Samsy/Sites/breel",
+  "author": {
+    "name": "mrdoob"
+  },
+  "bugs": {
+    "url": "https://github.com/mrdoob/three.js/issues"
+  },
+  "dependencies": {},
+  "description": "JavaScript 3D library",
+  "devDependencies": {
+    "eslint": "^3.10.1",
+    "eslint-config-mdcs": "^4.2.2",
+    "rollup": "^0.36.3",
+    "rollup-watch": "^2.5.0",
+    "uglify-js": "^2.6.0"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
+  },
+  "eslintConfig": {
+    "extends": "mdcs"
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "build/three.js",
+    "build/three.min.js",
+    "build/three.module.js",
+    "src",
+    "examples/js",
+    "examples/fonts"
+  ],
+  "gitHead": "f756fedcf04222fabcae7b66249a75f9782318d3",
+  "homepage": "http://threejs.org/",
+  "keywords": [
+    "three",
+    "three.js",
+    "3d",
+    "webgl"
+  ],
+  "license": "MIT",
+  "main": "build/three.js",
+  "name": "three",
+  "optionalDependencies": {},
+  "readme": "three.js\n========\n\n[![Latest NPM release][npm-badge]][npm-badge-url]\n[![License][license-badge]][license-badge-url]\n[![Dependencies][dependencies-badge]][dependencies-badge-url]\n[![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]\n\n#### JavaScript 3D library ####\n\nThe aim of the project is to create an easy to use, lightweight, 3D library. The library provides &lt;canvas&gt;, &lt;svg&gt;, CSS3D and WebGL renderers.\n\n[Examples](http://threejs.org/examples/) &mdash;\n[Documentation](http://threejs.org/docs/) &mdash;\n[Wiki](https://github.com/mrdoob/three.js/wiki) &mdash;\n[Migrating](https://github.com/mrdoob/three.js/wiki/Migration-Guide) &mdash;\n[Help](http://stackoverflow.com/questions/tagged/three.js)\n\n### Usage ###\n\nDownload the [minified library](http://threejs.org/build/three.min.js) and include it in your html.\nAlternatively see [how to build the library yourself](https://github.com/mrdoob/three.js/wiki/Build-instructions).\n\n```html\n<script src=\"js/three.min.js\"></script>\n```\n\nThis code creates a scene, a camera, and a geometric cube, and it adds the cube to the scene. It then creates a `WebGL` renderer for the scene and camera, and it adds that viewport to the document.body element. Finally it animates the cube within the scene for the camera.\n\n```javascript\nvar scene, camera, renderer;\nvar geometry, material, mesh;\n\ninit();\nanimate();\n\nfunction init() {\n\n\tscene = new THREE.Scene();\n\n\tcamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );\n\tcamera.position.z = 1000;\n\n\tgeometry = new THREE.BoxGeometry( 200, 200, 200 );\n\tmaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );\n\n\tmesh = new THREE.Mesh( geometry, material );\n\tscene.add( mesh );\n\n\trenderer = new THREE.WebGLRenderer();\n\trenderer.setSize( window.innerWidth, window.innerHeight );\n\n\tdocument.body.appendChild( renderer.domElement );\n\n}\n\nfunction animate() {\n\n\trequestAnimationFrame( animate );\n\n\tmesh.rotation.x += 0.01;\n\tmesh.rotation.y += 0.02;\n\n\trenderer.render( scene, camera );\n\n}\n```\n\nIf everything went well you should see [this](http://jsfiddle.net/hfj7gm6t/).\n\n### Change log ###\n\n[releases](https://github.com/mrdoob/three.js/releases)\n\n\n\n[npm-badge]: https://img.shields.io/npm/v/three.svg\n[npm-badge-url]: https://www.npmjs.com/package/three\n[license-badge]: https://img.shields.io/npm/l/three.svg\n[license-badge-url]: ./LICENSE\n[dependencies-badge]: https://img.shields.io/david/mrdoob/three.js.svg\n[dependencies-badge-url]: https://david-dm.org/mrdoob/three.js\n[devDependencies-badge]: https://img.shields.io/david/dev/mrdoob/three.js.svg\n[devDependencies-badge-url]: https://david-dm.org/mrdoob/three.js#info=devDependencies\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdoob/three.js.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build-closure": "rollup -c && java -jar utils/build/compiler/closure-compiler-v20160713.jar --warning_level=VERBOSE --jscomp_off=globalThis --jscomp_off=checkTypes --externs utils/build/externs.js --language_in=ECMASCRIPT5_STRICT --js build/three.js --js_output_file build/three.min.js",
+    "build-uglify": "rollup -c && uglifyjs build/three.js -cm --preamble \"// threejs.org/license\" > build/three.min.js",
+    "dev": "rollup -c -w",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.83.0"
+}
