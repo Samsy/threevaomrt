@@ -62,7 +62,7 @@
   "dependencies": {},
   "description": "JavaScript 3D library",
   "devDependencies": {
-    "eslint": "^3.10.1",
+    "eslint": "^6.6.0",
     "eslint-config-mdcs": "^4.2.2",
     "rollup": "^0.36.3",
     "rollup-watch": "^2.5.0",
